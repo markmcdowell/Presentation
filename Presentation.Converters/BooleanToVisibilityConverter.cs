@@ -1,0 +1,42 @@
+﻿using System;
+using System.Globalization;
+using System.Windows;
+using System.Windows.Data;
+
+namespace Presentation.Converters
+{
+    /// <summary>
+    /// Convert between a <see cref="bool"/> and <see cref="Visibility"/>.
+    /// </summary>
+    [ValueConversion(typeof(bool), typeof(Visibility))]
+    public sealed class BooleanToVisibilityConverter : IValueConverter
+    {
+        /// <summary>
+        /// Gets or sets the value to return when true. Defaults to Visible.
+        /// </summary>
+        public Visibility TrueState { get; set; } = Visibility.Visible;
+
+        /// <summary>
+        /// Gets or sets the value to return when false. Defaults to Collapsed.
+        /// </summary>
+        public Visibility FalseState { get; set; } = Visibility.Collapsed;
+
+        /// <inheritdoc />
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            var boolValue = false;
+            if (value is bool)
+            {
+                boolValue = (bool)value;
+            }
+            
+            return boolValue ? TrueState : FalseState;
+        }
+
+        /// <inheritdoc />
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            return value as Visibility? == TrueState;
+        }
+    }
+}
