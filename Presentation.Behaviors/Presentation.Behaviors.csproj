@@ -53,7 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ChangeFontSizeWithModifierAndMouseWheelBehavior.cs" />
-    <Compile Include="DragMoveWindowOnLeftMouseDownBehavior.cs" />
+    <Compile Include="DragMoveOnLeftMouseDownBehavior.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

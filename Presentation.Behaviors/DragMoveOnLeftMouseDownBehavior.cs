@@ -7,7 +7,7 @@ namespace Presentation.Behaviors
     /// <summary>
     /// Attached behavior to drag a window when the left mouse button is down.
     /// </summary>
-    public sealed class DragMoveWindowOnLeftMouseDownBehavior : Behavior<Window>
+    public sealed class DragMoveOnLeftMouseDownBehavior : Behavior<Window>
     {
         protected override void OnAttached()
         {
