@@ -54,7 +54,12 @@
   <ItemGroup>
     <Compile Include="ChangeFontSizeWithModifierAndMouseWheelBehavior.cs" />
     <Compile Include="DragMoveOnLeftMouseDownBehavior.cs" />
+    <Compile Include="FocusOnInitialisedBehavior.cs" />
+    <Compile Include="FocusOnMouseDownBehavior.cs" />
+    <Compile Include="HandleMouseDownBehavior.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SelectAllOnFocusPasswordBoxBehavior.cs" />
+    <Compile Include="SelectAllOnFocusTextBoxBaseBehavior.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
