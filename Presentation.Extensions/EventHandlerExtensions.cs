@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Specialized;
 using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace Presentation.Extensions
 {
@@ -26,25 +27,25 @@ namespace Presentation.Extensions
             handler?.Invoke(source, args);
         }
 
-        public static void Raise(this PropertyChangedEventHandler handler, INotifyPropertyChanged source, string eventName)
+        public static void Raise(this PropertyChangedEventHandler handler, INotifyPropertyChanged source, [CallerMemberName]string propertyName = null)
         {
             if (source == null)
                 throw new ArgumentNullException(nameof(source));
-            if (eventName == null)
-                throw new ArgumentNullException(nameof(eventName));
+            if (propertyName == null)
+                throw new ArgumentNullException(nameof(propertyName));
 
-            var args = new PropertyChangedEventArgs(eventName);
+            var args = new PropertyChangedEventArgs(propertyName);
             handler?.Invoke(source, args);
         }
 
-        public static void Raise(this PropertyChangingEventHandler handler, INotifyPropertyChanging source, string eventName)
+        public static void Raise(this PropertyChangingEventHandler handler, INotifyPropertyChanging source, [CallerMemberName]string propertyName = null)
         {
             if (source == null)
                 throw new ArgumentNullException(nameof(source));
-            if (eventName == null)
-                throw new ArgumentNullException(nameof(eventName));
+            if (propertyName == null)
+                throw new ArgumentNullException(nameof(propertyName));
 
-            var args = new PropertyChangingEventArgs(eventName);
+            var args = new PropertyChangingEventArgs(propertyName);
             handler?.Invoke(source, args);
         }
 
