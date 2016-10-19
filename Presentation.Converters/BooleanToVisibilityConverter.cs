@@ -17,9 +17,9 @@ namespace Presentation.Converters
         public Visibility TrueState { get; set; } = Visibility.Visible;
 
         /// <summary>
-        /// Gets or sets the value to return when false. Defaults to Collapsed.
+        /// Gets or sets the value to return when false. Defaults to Hidden.
         /// </summary>
-        public Visibility FalseState { get; set; } = Visibility.Collapsed;
+        public Visibility FalseState { get; set; } = Visibility.Hidden;
 
         /// <inheritdoc />
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)

@@ -52,7 +52,8 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DragMoveWindowBehavior.cs" />
+    <Compile Include="ChangeFontSizeWithModifierAndMouseWheelBehavior.cs" />
+    <Compile Include="DragMoveWindowOnLeftMouseDownBehavior.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
