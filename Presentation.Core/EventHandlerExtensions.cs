@@ -4,7 +4,7 @@ using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace Presentation.Extensions
+namespace Presentation.Core
 {
     /// <summary>
     /// Event handler extensions.
