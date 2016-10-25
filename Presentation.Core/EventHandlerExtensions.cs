@@ -58,6 +58,33 @@ namespace Presentation.Core
             handler?.Invoke(source, args);
         }
 
+        public static void Raise<T>(this NotifyCollectionChangedEventHandler handler, INotifyCollectionChanged source, NotifyCollectionChangedAction action, T item)
+        {
+            if (source == null)
+                throw new ArgumentNullException(nameof(source));
+
+            var args = new NotifyCollectionChangedEventArgs(action, item);
+            handler?.Invoke(source, args);
+        }
+
+        public static void Raise<T>(this NotifyCollectionChangedEventHandler handler, INotifyCollectionChanged source, NotifyCollectionChangedAction action, T item, int index)
+        {
+            if (source == null)
+                throw new ArgumentNullException(nameof(source));
+
+            var args = new NotifyCollectionChangedEventArgs(action, item, index);
+            handler?.Invoke(source, args);
+        }
+
+        public static void Raise<T>(this NotifyCollectionChangedEventHandler handler, INotifyCollectionChanged source, NotifyCollectionChangedAction action, T oldItem, T newItem, int index)
+        {
+            if (source == null)
+                throw new ArgumentNullException(nameof(source));
+
+            var args = new NotifyCollectionChangedEventArgs(action, oldItem, newItem, index);
+            handler?.Invoke(source, args);
+        }
+
         public static void Reset(this NotifyCollectionChangedEventHandler handler, INotifyCollectionChanged source)
         {
             if (source == null)
