@@ -14,7 +14,7 @@ namespace Presentation.Reactive
                              .Select(_ => (T)_.Sender);
         }
 
-        public static IObservable<T> Observe<T>(this INotifyPropertyChanging source, string propertyName)
+        public static IObservable<T> Observe<T>(this INotifyPropertyChanging source, string propertyName) where T : INotifyPropertyChanging
         {
             return Observable.FromEventPattern<PropertyChangingEventHandler, PropertyChangingEventArgs>(h => source.PropertyChanging += h, h => source.PropertyChanging -= h)
                              .Where(_ => _.EventArgs.PropertyName == propertyName)
