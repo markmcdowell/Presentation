@@ -6,15 +6,27 @@ using Presentation.Core;
 
 namespace Presentation.Collections
 {
-    public class ObservableKeyedCollection<TKey, TItem> : KeyedCollection<TKey, TItem>, INotifyCollectionChanged, INotifyPropertyChanged
+    /// <summary>
+    /// A keyed collection that will raise events when adding, removing and clearing.
+    /// </summary>
+    /// <typeparam name="TKey">The type of keys.</typeparam>
+    /// <typeparam name="TItem">The type of the items.</typeparam>
+    public sealed class ObservableKeyedCollection<TKey, TItem> : KeyedCollection<TKey, TItem>, INotifyCollectionChanged, INotifyPropertyChanged
     {
         private const string CountString = "Count";
         private const string IndexerName = "Item[]";
 
         private readonly Func<TItem, TKey> _keyFunction;
 
+        /// <summary>
+        /// Specify a key function to generate the keys for each item.
+        /// </summary>
+        /// <param name="keyFunction">The key function.</param>
         public ObservableKeyedCollection(Func<TItem, TKey> keyFunction)
         {
+            if (keyFunction == null)
+                throw new ArgumentNullException(nameof(keyFunction));
+
             _keyFunction = keyFunction;
         }
 
