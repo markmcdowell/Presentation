@@ -43,8 +43,13 @@
   <ItemGroup>
     <Compile Include="DelegateCommand.cs" />
     <Compile Include="DelegateCommand{T}.cs" />
-    <Compile Include="IRaiseableCommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Presentation.Interfaces\Presentation.Interfaces.csproj">
+      <Project>{851ACDF5-7B79-4FEE-A778-92746DFA4B7C}</Project>
+      <Name>Presentation.Interfaces</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

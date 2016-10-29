@@ -1,6 +1,6 @@
 ﻿using System.Windows.Input;
 
-namespace Presentation.Commands
+namespace Presentation.Interfaces
 {
     public interface IRaiseableCommand : ICommand
     {
