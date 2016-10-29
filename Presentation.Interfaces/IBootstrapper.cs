@@ -3,7 +3,7 @@
 namespace Presentation.Interfaces
 {
     /// <summary>
-    /// Interface defining the startup of the application
+    /// Defines the startup of the application.
     /// </summary>
     public interface IBootstrapper : IDisposable
     {

@@ -3,7 +3,7 @@
 namespace Presentation.Interfaces
 {
     /// <summary>
-    /// Interface defining a module
+    /// Defines a module.
     /// </summary>
     public interface IModule : IDisposable
     {
