@@ -8,24 +8,33 @@ namespace Presentation.Bootstrappers
     public sealed class UnhandledDispatcherExceptionBootstrapper : IBootstrapper
     {
         private readonly IBootstrapper _bootstrapper;
+        private readonly Application _application;
         private readonly Func<Exception, bool> _handler;
 
-        public UnhandledDispatcherExceptionBootstrapper(IBootstrapper bootstrapper, Func<Exception, bool> handler)
+        public UnhandledDispatcherExceptionBootstrapper(IBootstrapper bootstrapper, Application application, Func<Exception, bool> handler)
         {
+            if (bootstrapper == null)
+                throw new ArgumentNullException(nameof(bootstrapper));
+            if (application == null)
+                throw new ArgumentNullException(nameof(application));
+            if (handler == null)
+                throw new ArgumentNullException(nameof(handler));
+
             _bootstrapper = bootstrapper;
+            _application = application;
             _handler = handler;
         }
 
         public void Dispose()
         {
-            Application.Current.DispatcherUnhandledException -= CurrentOnDispatcherUnhandledException;
+            _application.DispatcherUnhandledException -= CurrentOnDispatcherUnhandledException;
 
             _bootstrapper.Dispose();
         }
 
         public void Initialize()
         {
-            Application.Current.DispatcherUnhandledException += CurrentOnDispatcherUnhandledException;
+            _application.DispatcherUnhandledException += CurrentOnDispatcherUnhandledException;
 
             _bootstrapper.Initialize();
         }
