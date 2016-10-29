@@ -3,6 +3,9 @@ using Presentation.Interfaces;
 
 namespace Presentation.Bootstrappers
 {
+    /// <summary>
+    /// Bootstrapper to handle any <see cref="AppDomain"/> exceptions.
+    /// </summary>
     public sealed class UnhandledAppDomainExceptionBootstrapper : IBootstrapper
     {
         private readonly IBootstrapper _bootstrapper;

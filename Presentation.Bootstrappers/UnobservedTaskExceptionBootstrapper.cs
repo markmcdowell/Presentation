@@ -4,6 +4,9 @@ using Presentation.Interfaces;
 
 namespace Presentation.Bootstrappers
 {
+    /// <summary>
+    /// Bootstrapper to handle any unobserved <see cref="Task"/> exceptions.
+    /// </summary>
     public sealed class UnobservedTaskExceptionBootstrapper : IBootstrapper
     {
         private readonly IBootstrapper _bootstrapper;

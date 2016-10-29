@@ -5,6 +5,9 @@ using Presentation.Interfaces;
 
 namespace Presentation.Bootstrappers
 {
+    /// <summary>
+    /// Bootstrapper to handle any unhandled <see cref="Dispatcher"/> exceptions.
+    /// </summary>
     public sealed class UnhandledDispatcherExceptionBootstrapper : IBootstrapper
     {
         private readonly IBootstrapper _bootstrapper;

@@ -4,6 +4,9 @@ using Presentation.Interfaces;
 
 namespace Presentation.Bootstrappers
 {
+    /// <summary>
+    /// Bootstrapper to initialize all instances of <see cref="IModule"/>.
+    /// </summary>
     public sealed class ModuleInitializingBootstrapper : IBootstrapper
     {
         private readonly ExportProvider _exportProvider;
