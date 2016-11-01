@@ -23,7 +23,7 @@ namespace Presentation.Converters
         /// <inheritdoc />
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            bool boolValue = false;
+            var boolValue = false;
             if (value is int)
             {
                 var intValue = (int) value;

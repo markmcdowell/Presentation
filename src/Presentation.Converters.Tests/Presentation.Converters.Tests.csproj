@@ -60,6 +60,7 @@
   <ItemGroup>
     <Compile Include="BooleanToVisibilityConverterTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ZeroToVisibilityConverterTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

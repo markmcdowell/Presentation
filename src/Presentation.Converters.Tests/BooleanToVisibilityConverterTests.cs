@@ -54,5 +54,37 @@ namespace Presentation.Converters.Tests
 
             Assert.Equal(Visibility.Visible, visibility);
         }
+
+        [Theory]
+        [InlineData(Visibility.Collapsed)]
+        [InlineData(Visibility.Visible)]
+        [InlineData(Visibility.Hidden)]
+        public void ShouldConvertTrueBoolToGivenTrueState(Visibility expectedVisibility)
+        {
+            var converter = new BooleanToVisibilityConverter
+            {
+                TrueState = expectedVisibility
+            };
+
+            var visibility = converter.Convert(true, null, null, null);
+
+            Assert.Equal(expectedVisibility, visibility);
+        }
+
+        [Theory]
+        [InlineData(Visibility.Collapsed)]
+        [InlineData(Visibility.Visible)]
+        [InlineData(Visibility.Hidden)]
+        public void ShouldConvertFalseBoolToGivenFalseState(Visibility expectedVisibility)
+        {
+            var converter = new BooleanToVisibilityConverter
+            {
+                FalseState = expectedVisibility
+            };
+
+            var visibility = converter.Convert(false, null, null, null);
+
+            Assert.Equal(expectedVisibility, visibility);
+        }
     }
 }
