@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{851ACDF5-7B79-4FEE-A778-92746DFA4B7C}</ProjectGuid>
+    <ProjectGuid>{F11CDAFA-26B2-4DC4-944F-E7C2CBAB323E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Presentation.Interfaces</RootNamespace>
-    <AssemblyName>Presentation.Interfaces</AssemblyName>
+    <RootNamespace>Presentation.Interop</RootNamespace>
+    <AssemblyName>Presentation.Interop</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,8 +30,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -41,17 +41,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IBootstrapper.cs" />
-    <Compile Include="IHideFromAppSwitchService.cs" />
-    <Compile Include="IHideFromPeekService.cs" />
-    <Compile Include="IModule.cs" />
-    <Compile Include="IRaiseableCommand.cs" />
-    <Compile Include="IWindow.cs" />
-    <Compile Include="IWindowWithHandle.cs" />
+    <Compile Include="HideFromAppSwitchService.cs" />
+    <Compile Include="HideFromPeekService.cs" />
+    <Compile Include="Native\DwmNativeMethods.cs" />
+    <Compile Include="Native\DwmRenderingPolicy.cs" />
+    <Compile Include="Native\DwmWindowAttribute.cs" />
+    <Compile Include="Native\Gwl.cs" />
+    <Compile Include="Native\UserNativeMethods.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Presentation.Interfaces.nuspec" />
+    <ProjectReference Include="..\Presentation.Interfaces\Presentation.Interfaces.csproj">
+      <Project>{851ACDF5-7B79-4FEE-A778-92746DFA4B7C}</Project>
+      <Name>Presentation.Interfaces</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Presentation.Interop.nuspec" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
