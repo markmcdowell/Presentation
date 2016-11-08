@@ -14,12 +14,12 @@ namespace Presentation.Converters
         /// <summary>
         /// Gets or sets the value to return when empty.
         /// </summary>
-        public Visibility EmptyState { get; set; }
+        public Visibility EmptyState { get; set; } = Visibility.Collapsed;
 
         /// <summary>
         /// Gets or sets the value to return when non-empty;
         /// </summary>
-        public Visibility NonEmptyState { get; set; }
+        public Visibility NonEmptyState { get; set; } = Visibility.Visible;
 
         /// <inheritdoc />
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
