@@ -5,6 +5,8 @@ namespace Presentation.Interfaces
 {
     public interface IWindow
     {
+        object DataContext { get; set; }
+
         string Title { get; set; }
 
         double Left { get; set; }
@@ -15,7 +17,11 @@ namespace Presentation.Interfaces
 
         double Height { get; set; }
 
+        event EventHandler Activated;
+
         event EventHandler Closed;
+
+        event EventHandler Deactivated;
 
         event EventHandler LocationChanged;
 
