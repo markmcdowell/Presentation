@@ -24,13 +24,13 @@ namespace Presentation.Converters
         /// <inheritdoc />
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            var boolValue = false;
+            var isTrue = false;
             if (value is bool)
             {
-                boolValue = (bool)value;
+                isTrue = (bool)value;
             }
             
-            return boolValue ? TrueState : FalseState;
+            return isTrue ? TrueState : FalseState;
         }
 
         /// <inheritdoc />

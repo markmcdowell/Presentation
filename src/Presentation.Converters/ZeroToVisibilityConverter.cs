@@ -23,32 +23,32 @@ namespace Presentation.Converters
         /// <inheritdoc />
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            var boolValue = false;
+            var isZero = false;
             if (value is int)
             {
                 var intValue = (int) value;
-                boolValue = intValue == 0;
+                isZero = intValue == 0;
             }
 
             if (value is long)
             {
                 var longValue = (long) value;
-                boolValue = longValue == 0L;
+                isZero = longValue == 0L;
             }
 
             if (value is decimal)
             {
                 var decimalValue = (decimal) value;
-                boolValue = decimalValue == 0M;
+                isZero = decimalValue == 0M;
             }
 
             if (value is string)
             {
                 var stringValue = (string) value;
-                boolValue = stringValue == "0";
+                isZero = stringValue == "0";
             }
 
-            return boolValue ? ZeroState : NonZeroState;
+            return isZero ? ZeroState : NonZeroState;
         }
 
         /// <inheritdoc />
