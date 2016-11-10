@@ -9,11 +9,13 @@ namespace Presentation.Interop
     {
         public void HideFromAppSwitch(IWindowWithHandle windowWithHandle)
         {
-            var handle = windowWithHandle.Handle;
+            var handle = windowWithHandle.RetrieveHandle();
 
             var index = (int) Gwl.GWL_EXSTYLE;
 
             var style = UserNativeMethods.GetWindowLong(handle, index);
+
+            style |= (int)Ws.WS_EX_TOOLWINDOW;
 
             UserNativeMethods.SetWindowLong(handle, index, style);
         }

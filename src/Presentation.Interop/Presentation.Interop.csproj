@@ -48,6 +48,7 @@
     <Compile Include="Native\DwmWindowAttribute.cs" />
     <Compile Include="Native\Gwl.cs" />
     <Compile Include="Native\UserNativeMethods.cs" />
+    <Compile Include="Native\Ws.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

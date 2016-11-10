@@ -9,7 +9,7 @@ namespace Presentation.Interop
     {
         public void HideFromPeek(IWindowWithHandle window)
         {            
-            var handle = window.Handle;
+            var handle = window.RetrieveHandle();
 
             var attrValue = (int)DwmRenderingPolicy.Enabled;
 
