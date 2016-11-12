@@ -9,13 +9,17 @@ namespace Presentation.Bootstrappers
     /// </summary>
     public sealed class ModuleInitializingBootstrapper : IBootstrapper
     {
+        private readonly IBootstrapper _bootstrapper;
         private readonly ExportProvider _exportProvider;
 
-        public ModuleInitializingBootstrapper(ExportProvider exportProvider)
+        public ModuleInitializingBootstrapper(IBootstrapper bootstrapper, ExportProvider exportProvider)
         {
+            if (bootstrapper == null)
+                throw new ArgumentNullException(nameof(bootstrapper));            
             if (exportProvider == null)
                 throw new ArgumentNullException(nameof(exportProvider));
 
+            _bootstrapper = bootstrapper;
             _exportProvider = exportProvider;
         }
 
@@ -26,6 +30,8 @@ namespace Presentation.Bootstrappers
             {
                 lazyModule.Value.Dispose();
             }
+
+            _bootstrapper.Dispose();
         }
 
         public void Initialize()
@@ -35,6 +41,8 @@ namespace Presentation.Bootstrappers
             {
                 lazyModule.Value.Initialize();
             }
+
+            _bootstrapper.Initialize();
         }
     }
 }
