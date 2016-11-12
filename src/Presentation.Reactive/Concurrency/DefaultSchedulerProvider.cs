@@ -4,7 +4,7 @@ using System.Reactive.Concurrency;
 namespace Presentation.Reactive.Concurrency
 {
     [Export(typeof(ISchedulerProvider))]
-    internal sealed class DefaultSchedulerProvider : ISchedulerProvider
+    public sealed class DefaultSchedulerProvider : ISchedulerProvider
     {
         public IScheduler TaskPool => TaskPoolScheduler.Default;
 

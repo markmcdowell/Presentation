@@ -24,8 +24,7 @@ namespace Presentation.Bootstrappers
             var modules = _exportProvider.GetExports<IModule>();
             foreach (var lazyModule in modules)
             {
-                if (lazyModule.IsValueCreated)
-                    lazyModule.Value.Dispose();
+                lazyModule.Value.Dispose();
             }
         }
 
